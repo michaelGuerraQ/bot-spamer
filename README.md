@@ -64,3 +64,120 @@ Para evitar responder varias veces al mismo usuario, el bot guarda los IDs en un
 
 ```text
 respondidos.txt
+
+Funcionamiento:
+
+Usuario escribe por primera vez → el bot responde y guarda su ID
+Si vuelve a escribir → el bot detecta el ID y no responde otra vez
+
+Ejemplo:
+
+123456789
+987654321
+456789123
+
+✔ Evita spam
+✔ Controla la interacción
+
+⏱️ Seguridad y control
+Delays configurables
+Pausas entre ciclos
+Manejo de errores:
+FloodWaitError
+ForbiddenError
+Exclusión de grupos problemáticos
+🔐 Inicio de sesión por QR
+No usa bot token
+Se conecta con una cuenta real
+Genera un QR en la terminal
+Se escanea desde Telegram
+Compatible con 2FA
+🧠 Flujo del sistema
+
+Difusión:
+
+Mensaje base
+   ↓
+Obtiene grupos
+   ↓
+Envía mensajes
+   ↓
+Espera tiempo
+   ↓
+Repite en bucle
+
+Respuesta automática:
+
+Usuario escribe
+   ↓
+Bot detecta mensaje
+   ↓
+Revisa respondidos.txt
+   ↓
+¿Ya respondió?
+   ├─ Sí → no responde
+   └─ No → responde y guarda ID
+🛠️ Tecnologías
+Python 3
+Telethon
+asyncio
+python-dotenv
+qrcode
+logging
+📦 Instalación
+git clone https://github.com/michaelGuerraQ/bot-spamer.git
+cd bot-spamer
+pip install -r requirements.txt
+🔑 Credenciales Telegram
+Ir a https://my.telegram.org
+Entrar con tu número
+Ir a API development tools
+Obtener:
+API_ID
+API_HASH
+⚙️ Configuración
+
+Crear archivo .env:
+
+API_ID=tu_api_id
+API_HASH=tu_api_hash
+▶️ Ejecución
+python main.py
+📱 Login con QR
+
+Al ejecutar:
+
+Se genera un QR en la terminal
+Lo escaneas desde Telegram
+Se inicia sesión
+El bot comienza a trabajar
+
+Flujo:
+
+Ejecutas bot
+   ↓
+Sale QR en terminal
+   ↓
+Escaneas con Telegram
+   ↓
+Sesión iniciada
+   ↓
+Bot activo
+📂 Estructura
+bot-spamer/
+├── main.py
+├── .env
+├── respondidos.txt
+├── requirements.txt
+└── sessions/
+✅ Casos de uso
+Difusión de promociones
+Automatización de ventas
+Atención automática en Telegram
+Gestión de comunidades
+👨‍💻 Autor
+
+Michael Stuward Guerra Quispe
+🔗 https://github.com/michaelGuerraQ
+
+<p align="center"> 🚀 Automatiza inteligentemente, no satures </p> ```

@@ -21,33 +21,46 @@
 > ⚠️ **Aviso importante**
 >
 > Este proyecto es de carácter **educativo y administrativo**.  
-> Debe utilizarse únicamente en chats, grupos o canales donde el usuario tenga **permiso explícito**.
+> Debe utilizarse únicamente en grupos o chats donde tengas **permiso para interactuar**.
 
 ---
 
 ## 📌 Descripción
 
-Este bot permite automatizar tareas dentro de Telegram utilizando una cuenta real (no bot),
-incluyendo:
+Este bot permite automatizar publicaciones de ventas o difusión dentro de Telegram utilizando una **cuenta real**, no un bot tradicional.
 
-- Respuestas automáticas a usuarios en privado
-- Envío masivo controlado en grupos y canales
-- Gestión inteligente para evitar bloqueos o spam agresivo
+El sistema inicia sesión mediante **QR Code** y trabaja directamente con la sesión del usuario.  
+Una vez autenticado, puede:
 
-Ideal para **automatización de atención, marketing controlado o gestión de comunidades**.
+- enviar publicaciones automáticamente en grupos donde la cuenta ya está agregada
+- trabajar en **bucle continuo**
+- respetar tiempos de espera configurados para reducir riesgos de restricciones
+- responder mensajes privados de forma automática
+- guardar los usuarios ya respondidos en un archivo local para no repetir respuestas
 
 ---
 
 ## 🚀 Funcionalidades principales
 
-### 🤖 Respuesta automática en mensajes privados
+### 📣 Difusión automática de publicaciones
+- Usa una cuenta real de Telegram iniciada por sesión
+- Toma un mensaje o publicación previamente configurada
+- Detecta los grupos donde la cuenta está agregada
+- Envía la publicación de forma automática
+- Puede trabajar en **bucle continuo**
+- Incluye pausas y delays entre envíos
 
-- Detecta mensajes entrantes en **chat privado**
-- Envía respuesta automática con:
-  - 🖼️ Imagen
-  - 📝 Texto formateado (HTML)
-  - 🔗 Links (WhatsApp / Telegram)
-- Responde **una sola vez por usuario**
-- Guarda registros en:
-  ```text
-  respondidos.txt
+### 🤖 Respuesta automática en mensajes privados
+- Detecta mensajes entrantes por **chat privado**
+- Envía una respuesta automática configurada
+- Puede incluir:
+  - texto
+  - imagen
+  - enlaces
+  - formato HTML
+
+### 💾 Control de usuarios ya respondidos
+Para evitar responder varias veces al mismo usuario, el bot guarda los IDs en un archivo local:
+
+```text
+respondidos.txt

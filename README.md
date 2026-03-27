@@ -1,183 +1,225 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Telegram-Spamer%20Bot-2AABEE?style=for-the-badge&logo=telegram&logoColor=white" />
+  <img src="https://img.shields.io/badge/Telegram-Auto%20Bot-2AABEE?style=for-the-badge&logo=telegram&logoColor=white" />
 </p>
 
-<h1 align="center">🤖📣 Bot Spamer para Telegram (Telethon)</h1>
+<h1 align="center">🤖 Telegram Auto Messenger Bot (Telethon)</h1>
 
 <p align="center">
-  Automatización avanzada de mensajería en Telegram usando <strong>Python + Telethon</strong><br>
-  Respuestas automáticas en privado y publicaciones programadas en grupos/canales
+Automatiza mensajes, difusión de contenido y respuestas privadas usando <b>Python + Telethon</b><br>
+Diseñado para ventas, marketing y gestión de comunidades
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.x-blue?style=flat-square&logo=python" />
-  <img src="https://img.shields.io/badge/Telethon-Telegram%20Client-blue?style=flat-square" />
-  <img src="https://img.shields.io/badge/Automatización-Mensajería-green?style=flat-square" />
-  <img src="https://img.shields.io/badge/Estado-Activo-success?style=flat-square" />
+  <img src="https://img.shields.io/badge/Python-3.x-blue?logo=python" />
+  <img src="https://img.shields.io/badge/Telethon-Telegram%20Client-blue" />
+  <img src="https://img.shields.io/badge/Asyncio-Enabled-green" />
+  <img src="https://img.shields.io/badge/Status-Active-success" />
 </p>
 
 ---
 
-> ⚠️ **Aviso importante**
->
-> Este proyecto es de carácter **educativo y administrativo**.  
-> Debe utilizarse únicamente en grupos o chats donde tengas **permiso para interactuar**.
+## ⚠️ Disclaimer
+
+Este proyecto es solo para **uso educativo y automatización responsable**.  
+No debe utilizarse para spam no autorizado o actividades que violen las políticas de Telegram.
 
 ---
 
-## 📌 Descripción
+## 📌 Overview
 
-Este bot permite automatizar publicaciones de ventas o difusión dentro de Telegram utilizando una **cuenta real**, no un bot tradicional.
+Este bot funciona usando una **cuenta real de Telegram (no bot token)** y permite automatizar:
 
-El sistema inicia sesión mediante **QR Code** y trabaja directamente con la sesión del usuario.  
-Una vez autenticado, puede:
-
-- enviar publicaciones automáticamente en grupos donde la cuenta ya está agregada
-- trabajar en **bucle continuo**
-- respetar tiempos de espera configurados para reducir riesgos de restricciones
-- responder mensajes privados de forma automática
-- guardar los usuarios ya respondidos en un archivo local para no repetir respuestas
+- 📣 Envío masivo de publicaciones en grupos  
+- 🤖 Respuestas automáticas en chats privados  
+- 🔁 Ejecución en bucle continuo  
+- ⏱️ Control de tiempos para evitar restricciones  
+- 💾 Registro de usuarios ya atendidos  
 
 ---
 
-## 🚀 Funcionalidades principales
+## ✨ Features
 
-### 📣 Difusión automática de publicaciones
-- Usa una cuenta real de Telegram iniciada por sesión
-- Toma un mensaje o publicación previamente configurada
-- Detecta los grupos donde la cuenta está agregada
-- Envía la publicación de forma automática
-- Puede trabajar en **bucle continuo**
-- Incluye pausas y delays entre envíos
+### 📣 Auto Broadcast
 
-### 🤖 Respuesta automática en mensajes privados
-- Detecta mensajes entrantes por **chat privado**
-- Envía una respuesta automática configurada
-- Puede incluir:
-  - texto
-  - imagen
-  - enlaces
-  - formato HTML
+- Detecta automáticamente los grupos donde estás  
+- Envía mensajes programados  
+- Soporta texto, links e imágenes  
+- Delay configurable entre envíos  
+- Ejecución continua (loop infinito)  
 
-### 💾 Control de usuarios ya respondidos
-Para evitar responder varias veces al mismo usuario, el bot guarda los IDs en un archivo local:
+---
 
-```text
+### 🤖 Auto Reply (DM)
+
+- Detecta mensajes privados entrantes  
+- Responde automáticamente  
+- Compatible con:
+  - texto  
+  - HTML  
+  - enlaces  
+  - imágenes  
+
+---
+
+### 💾 Smart User Tracking
+
+Evita responder múltiples veces al mismo usuario:
+
+```txt
 respondidos.txt
+```
 
-Funcionamiento:
+✔ Guarda IDs automáticamente  
+✔ Evita spam innecesario  
+✔ Mejora control de interacción  
 
-Usuario escribe por primera vez → el bot responde y guarda su ID
-Si vuelve a escribir → el bot detecta el ID y no responde otra vez
+---
 
-Ejemplo:
+### 🔐 Login con QR
 
-123456789
-987654321
-456789123
+- No usa bot token  
+- Login mediante QR Code  
+- Compatible con 2FA  
+- Sesión persistente  
 
-✔ Evita spam
-✔ Controla la interacción
+---
 
-⏱️ Seguridad y control
-Delays configurables
-Pausas entre ciclos
-Manejo de errores:
-FloodWaitError
-ForbiddenError
-Exclusión de grupos problemáticos
-🔐 Inicio de sesión por QR
-No usa bot token
-Se conecta con una cuenta real
-Genera un QR en la terminal
-Se escanea desde Telegram
-Compatible con 2FA
-🧠 Flujo del sistema
+## 🧠 Workflow
 
-Difusión:
+### 🔄 Broadcasting
 
+```
 Mensaje base
    ↓
 Obtiene grupos
    ↓
-Envía mensajes
+Envía mensaje
    ↓
-Espera tiempo
+Espera delay
    ↓
-Repite en bucle
+Repite
+```
 
-Respuesta automática:
+---
 
+### 💬 Auto Reply
+
+```
 Usuario escribe
    ↓
-Bot detecta mensaje
-   ↓
-Revisa respondidos.txt
+Verifica respondidos.txt
    ↓
 ¿Ya respondió?
-   ├─ Sí → no responde
-   └─ No → responde y guarda ID
-🛠️ Tecnologías
-Python 3
-Telethon
-asyncio
-python-dotenv
-qrcode
-logging
-📦 Instalación
+   ├─ Sí → Ignora
+   └─ No → Responde + Guarda ID
+```
+
+---
+
+## 🛠️ Tech Stack
+
+- Python 3  
+- Telethon  
+- asyncio  
+- python-dotenv  
+- logging  
+- qrcode  
+
+---
+
+## 📦 Installation
+
+```bash
 git clone https://github.com/michaelGuerraQ/bot-spamer.git
 cd bot-spamer
 pip install -r requirements.txt
-🔑 Credenciales Telegram
-Ir a https://my.telegram.org
-Entrar con tu número
-Ir a API development tools
-Obtener:
+```
+
+---
+
+## 🔑 Telegram API Setup
+
+1. Ir a: https://my.telegram.org  
+2. Iniciar sesión con tu número  
+3. Entrar a: **API Development Tools**  
+4. Obtener:
+
+```
 API_ID
 API_HASH
-⚙️ Configuración
+```
 
-Crear archivo .env:
+---
 
+## ⚙️ Configuration
+
+Crear archivo `.env`:
+
+```env
 API_ID=tu_api_id
 API_HASH=tu_api_hash
-▶️ Ejecución
+```
+
+---
+
+## ▶️ Run
+
+```bash
 python main.py
-📱 Login con QR
+```
 
-Al ejecutar:
+---
 
-Se genera un QR en la terminal
-Lo escaneas desde Telegram
-Se inicia sesión
-El bot comienza a trabajar
+## 📱 Login
 
-Flujo:
+1. Ejecutas el bot  
+2. Se genera QR en terminal  
+3. Escaneas desde Telegram  
+4. Sesión iniciada  
+5. Bot activo 🚀  
 
-Ejecutas bot
-   ↓
-Sale QR en terminal
-   ↓
-Escaneas con Telegram
-   ↓
-Sesión iniciada
-   ↓
-Bot activo
-📂 Estructura
+---
+
+## 📂 Project Structure
+
+```
 bot-spamer/
 ├── main.py
 ├── .env
 ├── respondidos.txt
 ├── requirements.txt
 └── sessions/
-✅ Casos de uso
-Difusión de promociones
-Automatización de ventas
-Atención automática en Telegram
-Gestión de comunidades
-👨‍💻 Autor
+```
 
-Michael Stuward Guerra Quispe
-🔗 https://github.com/michaelGuerraQ
+---
 
-<p align="center"> 🚀 Automatiza inteligentemente, no satures </p> ```
+## 🧩 Use Cases
+
+- Marketing digital en Telegram  
+- Automatización de ventas  
+- Atención automática  
+- Gestión de comunidades  
+
+---
+
+## 🚧 Roadmap
+
+- [ ] Panel web (React)  
+- [ ] Dashboard de métricas  
+- [ ] Filtros por tipo de grupo  
+- [ ] Integración con IA  
+- [ ] Multi cuenta  
+
+---
+
+## 👨‍💻 Author
+
+**Michael Stuward Guerra Quispe**
+
+🔗 https://github.com/michaelGuerraQ  
+
+---
+
+<p align="center">
+🚀 Automatiza con inteligencia, no hagas spam
+</p>
